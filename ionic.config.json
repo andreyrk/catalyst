@@ -1,0 +1,8 @@
+{
+  "name": "Catalyst",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "1ae5f3a9"
+}
