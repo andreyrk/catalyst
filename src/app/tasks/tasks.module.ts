@@ -2,19 +2,18 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TasksPage as TasksPage } from './tasks.page';
 
-import { TabsPageRoutingModule } from './tabs-routing.module';
-
-import { TabsPage } from './tabs.page';
+import { TasksPageRoutingModule } from './tasks-routing.module';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    TabsPageRoutingModule
+    TasksPageRoutingModule
   ],
-  declarations: [TabsPage]
+  declarations: [TasksPage]
 })
 
-export class TabsPageModule {}
+export class TasksPageModule {}

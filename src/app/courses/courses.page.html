@@ -1,0 +1,30 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>
+      Matérias
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let rootCourse of courses">
+    <ion-item button (click)="toggle(rootCourse)" [ngClass]="{'section-active': !rootCourse.expanded, 'section': rootCourse.expanded}">
+      <ion-icon item-left name="chevron-forward" *ngIf="!rootCourse.expanded"></ion-icon>
+      <ion-icon item-left name="chevron-down" *ngIf="rootCourse.expanded"></ion-icon>
+      {{ rootCourse.title }}
+    </ion-item>
+    <ion-list *ngFor="let course of rootCourse.courses">
+        <ion-item button *ngIf="rootCourse.expanded" (click)="toggle(course)" [ngClass]="{'section-active': !course.expanded, 'section': course.expanded}">
+          <ion-icon item-left name="chevron-forward" *ngIf="course.classes && !course.expanded"></ion-icon>
+          <ion-icon item-left name="chevron-down" *ngIf="course.classes && course.expanded"></ion-icon>
+          {{ course.title }}
+        </ion-item>
+        <ion-list *ngIf="rootCourse.expanded && course.expanded">
+          <ion-item *ngFor="let courseClass of course.classes">
+            <ion-icon item-left name="school"></ion-icon>
+            {{ courseClass.title }}
+          </ion-item>
+        </ion-list>
+    </ion-list>
+  </ion-list>
+</ion-content>
