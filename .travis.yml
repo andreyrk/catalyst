@@ -1,0 +1,20 @@
+os:
+  - linux
+language: node_js
+node_js:
+  - "lts/*"
+cache: npm
+install:
+  - npm install -g ionic
+before_script:
+  - npm install
+script:
+  - ionic build --prod
+deploy:
+  provider: pages
+  target_branch: gh-pages
+  github_token: $GITHUB_TOKEN
+  skip_cleanup: true
+  local_dir: www
+  on:
+    branch: main
