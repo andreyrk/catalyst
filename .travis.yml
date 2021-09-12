@@ -9,7 +9,7 @@ install:
 before_script:
   - npm install
 script:
-  - ionic build --prod
+  - ionic build --prod --base-href /catalyst/
 deploy:
   provider: pages
   target_branch: gh-pages
@@ -18,4 +18,3 @@ deploy:
   local_dir: www
   on:
     branch: main
-    
