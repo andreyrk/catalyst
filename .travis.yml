@@ -1,5 +1,7 @@
 os:
   - linux
+dist:
+  - xenial
 language: node_js
 node_js:
   - "lts/*"
@@ -9,12 +11,13 @@ install:
 before_script:
   - npm install
 script:
-  - ionic build --prod --base-href /catalyst/
+  - ionic build --prod
 deploy:
+  strategy: git
   provider: pages
   target_branch: gh-pages
-  github_token: $GITHUB_TOKEN
-  skip_cleanup: true
+  token: $GITHUB_TOKEN
   local_dir: www
+  cleanup: false
   on:
     branch: main
