@@ -16,6 +16,7 @@
           "options": {
             "outputPath": "www",
             "baseHref": "/catalyst",
+            "deployUrl": "/catalyst",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
