@@ -20,7 +20,7 @@
           {{ course.title }}
         </ion-item>
         <ion-list *ngIf="rootCourse.expanded && course.expanded">
-          <ion-item *ngFor="let courseClass of course.classes">
+          <ion-item button (click)="open(courseClass)" *ngFor="let courseClass of course.classes">
             <ion-icon item-left name="school"></ion-icon>
             {{ courseClass.title }}
           </ion-item>

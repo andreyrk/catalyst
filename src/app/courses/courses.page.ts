@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
@@ -27,7 +28,7 @@ export class CoursesPage {
     "assets/courses/sociologia.json",
   ]
 
-  constructor() {
+  constructor(private router: Router) {
     for (let path of this.courseFiles) {
       fetch(path).then(
         (result) => {
@@ -41,5 +42,15 @@ export class CoursesPage {
 
   toggle(target: any) {
     target.expanded = !target.expanded;
+  }
+
+  open(target: any) {
+    let extras: NavigationExtras = {
+      state: {
+        courseClass: target
+      }
+    };
+
+    this.router.navigate(['courses/classes'], extras);
   }
 }
