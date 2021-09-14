@@ -7,13 +7,14 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col *ngFor="let videoData of this.courseClass.videoData" size-md="12" size-lg="6" size-xl="4">
-        <ion-card>
-          <ion-img [src]="videoData.thumbnail_url"></ion-img>
+      <ion-col *ngFor="let videoData of this.courseClass.videoData; let i = index" size-sm="12" size-md="6" size-xl="4">
+        <ion-card button (click)="open(this.courseClass.videos[i])">
+          <ion-img [src]="thumbnail(this.courseClass.videos[i])"></ion-img>
           <ion-card-header>
             <ion-card-title>{{ videoData.title }}</ion-card-title>
             <ion-card-subtitle>{{ videoData.author_name }}</ion-card-subtitle>
           </ion-card-header>
+          <ion-ripple-effect></ion-ripple-effect>
         </ion-card>
       </ion-col>
     </ion-row>

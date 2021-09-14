@@ -23,6 +23,14 @@ export class ClassesPage implements OnInit {
     });
   }
 
+  open(id: string) {
+    window.open('https://www.youtube.com/watch?v=' + id);
+  }
+
+  thumbnail(id: string) {
+    return 'https://i.ytimg.com/vi/' + id + '/mqdefault.jpg';
+  }
+
   ngOnInit() {
 
   }
